@@ -29,6 +29,14 @@ const Bestbuy = [
         price: "60",
         quality: "new",
         color: "black"
+    },
+
+    {
+        name: "airpod pros 2nd gen",
+        brand: "apple",
+        price: "250",
+        quality: "new",
+        color: "white"
     }
 ];
 
@@ -57,12 +65,21 @@ const Walmart = [
         quality: "new",
         color: "white",
     },
+
     {
         name: "backpack",
         brand: "jansport",
         price: "53",
-        quality: "referbreshed",
+        quality: "refurbished",
         color: "grey",
+    },
+    
+    {
+        name: "airpod pros 2nd gen",
+        brand: "apple",
+        price: "199",
+        quality: "new",
+        color: "white"
     }
 
 ];
