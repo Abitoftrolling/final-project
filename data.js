@@ -84,20 +84,53 @@ const Walmart = [
 
 ];
 
+const productList = document.getElementById('productList'); // Make sure you have an HTML element with this ID
 
+for (let i = 0; i < Walmart.length; i++) {
+    const walmartProduct = Walmart[i];
+    const bestbuyProduct = Bestbuy[i];
 
+    const productDiv = document.createElement('div');
+    productDiv.className = 'product';
 
-
-
-roducts.forEach(StoreA => {
-    const StoreADiv = document.createElement('div');
-    StoreADiv.innerHTML = `
+    const cheaperBrand = (parseFloat(walmartProduct.price) < parseFloat(bestbuyProduct.price)) ? "Walmart" : "Best Buy";
+    
+    productDiv.innerHTML = `
       <div class="product-info">
-        <h2>${StoreA.name}</h2>
-        <p>Quality: ${storeA.quality}</p>
+        <h2>${walmartProduct.name}</h2>
+        <p>Brand: ${walmartProduct.brand}</p>
+        <p>Price - Walmart: $${walmartProduct.price} | Best Buy: $${bestbuyProduct.price}</p>
+        <p>Quality - Walmart: ${walmartProduct.quality} | Best Buy: ${bestbuyProduct.quality}</p>
+        <p>Color - Walmart: ${walmartProduct.color} | Best Buy: ${bestbuyProduct.color}</p>
       </div>
-      <div class="price">$${StoreA.price}</div>
-      <div class="brand">$${storeA.brand}</div>
-      <div class= "color">$${storeA.color}</div>
+      <div class="price">
+        <button class="opinion-button">Get Opinion</button>
+      </div>
+      <div class="opinion"></div>
     `;
+
+    const opinionButton = productDiv.querySelector('.opinion-button');
+    const opinionDiv = productDiv.querySelector('.opinion');
+    
+    opinionButton.addEventListener('click', function () {
+        if (opinionDiv.textContent) {
+            opinionDiv.textContent = ''; // Clear the opinion text
+            
+        } else {
+            const newOpinion = (cheaperBrand === "Walmart")
+                ? "Walmart might be the better option due to its lower price."
+                : "Best Buy might be the better option due to its lower price.";
+
+            opinionDiv.textContent = newOpinion;
+            // Close other open opinions
+            const allOpinionDivs = document.querySelectorAll('.opinion');
+            allOpinionDivs.forEach(div => {
+                if (div !== opinionDiv) {
+                    div.textContent = '';
+                }
+            });
+        }
+    });
+
+    productList.appendChild(productDiv);
 }
