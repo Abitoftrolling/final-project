@@ -128,7 +128,7 @@ for (let i = 0; i < Walmart.length; i++) {
             const bestbuyPrice = parseFloat(bestbuyProduct.price);
             const priceDifference = Math.abs(walmartPrice - bestbuyPrice).toFixed(2);
 
-            opinionMessage = `You can save $${priceDifference} by choosing the ${cheaperBrand} option.`;
+            opinionMessage = `You can save $${priceDifference} by choosing the ${cheaperBrand} option!`;
 
             opinionDiv.textContent = opinionMessage;
 
