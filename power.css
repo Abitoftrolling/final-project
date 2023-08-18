@@ -14,6 +14,7 @@ nav {
   padding-bottom: 25px;
   font-size: 42px;
   font-weight: bold;
+  width: 100%;
 }
 
 #logo {
@@ -23,13 +24,12 @@ nav {
 #compare {
   color: black;
   display: flex;
-  padding-left: 800px;
-  padding-right: 800px;
+  padding-left: 100px;
+  padding-right: 100px;
 }
 
 #donate {
   color: black;
-  padding-right: 475px;
 }
 
 a {
